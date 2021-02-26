@@ -6,16 +6,14 @@ public class Profession {
     private String education;
     private String birthday;
 
-    public void getName(String n) {
-        this.name = n;
+    public Profession() {
+        this.name = name;
+        this.surname = surname;
+        this.education = education;
+        this.birthday = birthday;
     }
-    public void getSurame(String n) {
-        this.surname = n;
-    }
-    public void getEducation(String n) {
-        this.education = n;
-    }
-    public void getBirthday(String n) {
-        this.birthday = n;
+
+    public void getName() {
+        System.out.println(name);
     }
 }
