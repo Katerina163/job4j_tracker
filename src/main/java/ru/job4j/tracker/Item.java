@@ -19,4 +19,9 @@ public class Item {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void getNameAndId(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
 }
