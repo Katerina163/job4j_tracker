@@ -13,7 +13,7 @@ public class Triangle {
         return (a + b + c) / 2;
     }
     public boolean exist(double ab, double ac, double bc) {
-        return ab + ac <= bc && ab + bc <= ac && ab + bc <= ac;
+        return ab + ac > bc && ab + bc > ac && ab + bc > ac;
     }
     public double area() {
         double rsl = -1;
