@@ -1,11 +1,10 @@
 package ru.job4j.tracker.ru.job4j.professions;
 
 public class Doctor extends Profession {
-    private Profession prof;
     private String timeOfReceipt;
 
-    public Doctor(Profession prof, String timeOfReceipt) {
-        this.prof = prof;
+    public Doctor(String name, String surname, String education, String birthday, String timeOfReceipt) {
+        super(name, surname, education, birthday);
         this.timeOfReceipt = timeOfReceipt;
     }
 
