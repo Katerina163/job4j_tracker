@@ -26,7 +26,7 @@ public class Library {
         }
         System.out.println("Киниги Clean code:");
         for (int index = 0; index < shelf.length; index++) {
-            if (shelf[index].equals("Clean code")) {
+            if (shelf[index].getName().equals("Clean code")) {
                 Book book = shelf[index];
                 System.out.println(book.getName() + " - " + book.getNumberOfPages());
             }
