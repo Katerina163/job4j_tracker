@@ -32,7 +32,7 @@ public class Tracker {
             }
 
         }
-        array = Arrays.copyOf(array, size);
+        array = Arrays.copyOf(array, i);
         return array;
     }
 

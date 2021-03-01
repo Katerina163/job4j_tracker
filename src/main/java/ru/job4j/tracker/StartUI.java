@@ -39,7 +39,6 @@ public class StartUI {
             } else if (select == 3) {
                 System.out.print("Id item to be delete: ");
                 Integer id = Integer.valueOf(scanner.nextLine());
-                Item item = new Item(id);
                 if (tracker.delete(id)) {
                     System.out.println("Success");
                 } else {
@@ -49,7 +48,7 @@ public class StartUI {
                 System.out.print("Id item to be found: ");
                 Integer id = Integer.valueOf(scanner.nextLine());
                 Item item = tracker.findById(id);
-                if (item.equals(null)) {
+                if (item == null) {
                     System.out.println("Item with this id was not found");
                 } else {
                     System.out.println(item.toString());
