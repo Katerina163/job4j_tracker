@@ -61,7 +61,7 @@ public class Tracker {
         int ind = indexOf(id);
         boolean rsl = ind != -1;
         if (rsl) {
-            System.arraycopy(items, ind + 1, items, ind, size - ind);
+            System.arraycopy(items, ind + 1, items, ind, size - ind - 1);
             items[size - 1] = null;
             size--;
         }
