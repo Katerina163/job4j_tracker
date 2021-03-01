@@ -57,4 +57,13 @@ public class Item {
     public int hashCode() {
         return Objects.hash(created, id, name);
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "created=" + created +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

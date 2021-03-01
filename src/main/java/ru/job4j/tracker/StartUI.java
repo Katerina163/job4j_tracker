@@ -11,5 +11,6 @@ public class StartUI {
         Tracker trac = new Tracker();
         trac.add(i);
         System.out.println(trac.findById(1));
+        System.out.println(trac.toString());
     }
 }
