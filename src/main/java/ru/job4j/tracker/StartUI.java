@@ -11,7 +11,7 @@ public class StartUI {
     }
 
     public static void editItem(Input input, Tracker tracker) {
-        Integer deleteid = Integer.valueOf(input.askStr("Id item to be edit: "));
+        Integer deleteid = input.askInt("Id item to be edit: ");
         String createid = input.askStr("Item to be create: ");
         Item item = new Item(createid);
         if (tracker.replace(deleteid, item)) {
@@ -22,7 +22,7 @@ public class StartUI {
     }
 
     public static void deleteItem(Input input, Tracker tracker) {
-        Integer id = Integer.valueOf(input.askStr("Id item to be delete: "));
+        Integer id = input.askInt("Id item to be delete: ");
         if (tracker.delete(id)) {
             System.out.println("Success");
         } else {
@@ -31,7 +31,7 @@ public class StartUI {
     }
 
     public static void foundIdItem(Input input, Tracker tracker) {
-        Integer id = Integer.valueOf(input.askStr("Id item to be found: "));
+        Integer id = input.askInt("Id item to be found: ");
         Item item = tracker.findById(id);
         if (item == null) {
             System.out.println("Item with this id was not found");
@@ -56,7 +56,7 @@ public class StartUI {
         boolean run = true;
         while (run) {
             this.showMenu();
-            int select = Integer.valueOf(input.askStr("Select: "));
+            int select = input.askInt("Select: ");
             if (select == 0) {
                 StartUI.createItem(input, tracker);
             } else if (select == 1) {
