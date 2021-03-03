@@ -5,14 +5,13 @@ public class Fact {
     }
 
     public static int calc(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("The number must not be negative");
+        }
         int rsl = 1;
-        if (n >= 0) {
-            for (int index = 1; index <= n; index++) {
-                rsl *= index;
-            }
-        } else {
-                throw new IllegalArgumentException("The number must not be negative");
-            }
+        for (int index = 1; index <= n; index++) {
+            rsl *= index;
+        }
         return rsl;
     }
 }
