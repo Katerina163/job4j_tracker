@@ -18,7 +18,7 @@ public class ShowAllActions implements UserAction {
         if (array.length > 0) {
             out.println("All items:");
             for (Item i : array) {
-                System.out.println(i);
+                out.println(i);
             }
         } else {
             out.println("No item");
