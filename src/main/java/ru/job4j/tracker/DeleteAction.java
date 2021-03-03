@@ -1,6 +1,12 @@
 package ru.job4j.tracker;
 
 public class DeleteAction implements UserAction {
+    private final Output out;
+
+    public DeleteAction(Output out) {
+        this.out = out;
+    }
+
     @Override
     public String name() {
         return "Delete item";
@@ -10,9 +16,9 @@ public class DeleteAction implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         Integer id = input.askInt("Id item to be delete: ");
         if (tracker.delete(id)) {
-            System.out.println("Success");
+            out.println("Success");
         } else {
-            System.out.println("Error");
+            out.println("Error");
         }
         return true;
     }
