@@ -19,19 +19,6 @@ public final class Airbus extends Aircraft {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Airbus airbus = (Airbus) o;
-        return Objects.equals(name, airbus.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
-    }
-
-    @Override
     public void printModel() {
         System.out.println("Модель самолета: " + name);
     }
