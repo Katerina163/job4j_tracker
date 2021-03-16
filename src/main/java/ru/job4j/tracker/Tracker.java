@@ -6,7 +6,6 @@ import java.util.Arrays;
 public class Tracker {
     private final ArrayList<Item> items = new ArrayList<Item>(100);
     private int ids = 1;
-    private int size = 0;
 
     public Item add(Item item) {
         item.setId(ids++);
@@ -19,21 +18,17 @@ public class Tracker {
         return index != -1 ? items.get(index) : null;
     }
 
-    public Item[] findAll() {
-        return items.toArray(new Item[items.size()]);
+    public ArrayList<Item> findAll() {
+        return items;
     }
 
-    public Item[] findByName(String key) {
-        Item[] array = new Item[items.size()];
-        int i = 0;
-        for (int index = 0; index < size; index++) {
-            if (items.get(index).getName().equals(key)) {
-                array[i] = items.get(index);
-                i++;
+    public ArrayList<Item> findByName(String key) {
+        ArrayList<Item> array = new ArrayList<Item>();
+        for (var element : items) {
+            if (element.getName().equals(key)) {
+                array.add(element);
             }
-
         }
-        array = Arrays.copyOf(array, i);
         return array;
     }
 
@@ -49,7 +44,7 @@ public class Tracker {
 
     private int indexOf(int id) {
         int rsl = -1;
-        for (int index = 0; index < size; index++) {
+        for (int index = 0; index < items.size(); index++) {
             if (items.get(index).getId() == id) {
                 rsl = index;
                 break;
@@ -62,9 +57,7 @@ public class Tracker {
         int ind = indexOf(id);
         boolean rsl = ind != -1;
         if (rsl) {
-            System.arraycopy(items, ind + 1, items, ind, size - ind - 1);
-            items.set(size - 1, null);
-            size--;
+            items.remove(ind);
         }
         return rsl;
     }

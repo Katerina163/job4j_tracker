@@ -1,6 +1,9 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
@@ -18,7 +21,7 @@ public class StartUITest {
                 new ExitAction()
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findAll()[0].getName(), is("Item name"));
+        assertThat(tracker.findById(1).getName(), is("Item name"));
     }
     @Test
     public void whenEditItem() {
@@ -58,7 +61,7 @@ public class StartUITest {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("item"));
-        Item[] name = tracker.findAll();
+        ArrayList<Item> name = tracker.findAll();
         Input in = new StubInput(
                 new String[] {"0" , "1"}
         );
@@ -72,7 +75,7 @@ public class StartUITest {
                         "0. Show all items" + System.lineSeparator() +
                         "1. Exit Program" + System.lineSeparator() +
                         "All items:" + System.lineSeparator() +
-                        name[0] +  System.lineSeparator() +
+                        name.get(0) +  System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Show all items" + System.lineSeparator() +
                         "1. Exit Program" + System.lineSeparator()
@@ -84,7 +87,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("item"));
         String id = String.valueOf(item.getId());
-        Item[] name = tracker.findAll();
+        ArrayList<Item> name = tracker.findAll();
         Input in = new StubInput(
                 new String[] {"0" , id, "1"}
         );
@@ -97,7 +100,7 @@ public class StartUITest {
                 "Menu." + System.lineSeparator() +
                         "0. Find item by Id" + System.lineSeparator() +
                         "1. Exit Program" + System.lineSeparator() +
-                        name[0] +  System.lineSeparator() +
+                        name.get(0) +  System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find item by Id" + System.lineSeparator() +
                         "1. Exit Program" + System.lineSeparator()
@@ -109,7 +112,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         String name = "item";
         Item item = tracker.add(new Item(name));
-        Item[] it = tracker.findAll();
+        ArrayList<Item> it = tracker.findAll();
         Input in = new StubInput(
                 new String[] {"0" , name, "1"}
         );
@@ -122,7 +125,7 @@ public class StartUITest {
                 "Menu." + System.lineSeparator() +
                         "0. Find items by name" + System.lineSeparator() +
                         "1. Exit Program" + System.lineSeparator() +
-                        it[0] +  System.lineSeparator() +
+                        it.get(0) +  System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find items by name" + System.lineSeparator() +
                         "1. Exit Program" + System.lineSeparator()
