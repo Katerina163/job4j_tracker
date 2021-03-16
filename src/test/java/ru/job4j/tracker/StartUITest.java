@@ -61,7 +61,7 @@ public class StartUITest {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("item"));
-        ArrayList<Item> name = tracker.findAll();
+        List<Item> name = tracker.findAll();
         Input in = new StubInput(
                 new String[] {"0" , "1"}
         );
@@ -87,7 +87,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("item"));
         String id = String.valueOf(item.getId());
-        ArrayList<Item> name = tracker.findAll();
+        List<Item> name = tracker.findAll();
         Input in = new StubInput(
                 new String[] {"0" , id, "1"}
         );
@@ -112,7 +112,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         String name = "item";
         Item item = tracker.add(new Item(name));
-        ArrayList<Item> it = tracker.findAll();
+        List<Item> it = tracker.findAll();
         Input in = new StubInput(
                 new String[] {"0" , name, "1"}
         );

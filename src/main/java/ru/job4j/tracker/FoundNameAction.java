@@ -17,7 +17,7 @@ public class FoundNameAction implements UserAction {
     @Override
     public boolean execute(Input input, Tracker tracker) {
         String name = input.askStr("Name item to be found: ");
-        ArrayList<Item> item = tracker.findByName(name);
+        List<Item> item = tracker.findByName(name);
         if(item.size() >0) {
             for (Item i : item) {
                 out.println(i);
